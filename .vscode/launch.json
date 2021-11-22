@@ -1,0 +1,51 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch SpringAppApplication",
+            "request": "launch",
+            "mainClass": "com.spring.app.springapp.SpringAppApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-App<cravejava-app>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "in.cravejava.app.App",
+            "projectName": "cravejava-app",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DemohelloworldAppApplication<demohelloworld-app>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.demohelloworld.app.demohelloworldapp.DemohelloworldAppApplication",
+            "projectName": "demohelloworld-app",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringAppApplication<spring-app>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.spring.app.springapp.SpringAppApplication",
+            "projectName": "spring-app",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-AppApplication<app>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.springboot.app.AppApplication",
+            "projectName": "app",
+            "args": ""
+        }
+    ]
+}

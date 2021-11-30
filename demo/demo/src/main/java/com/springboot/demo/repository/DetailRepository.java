@@ -11,6 +11,5 @@ import com.springboot.demo.entity.Detail;
 @Repository
 public interface DetailRepository extends CrudRepository<Detail, Integer> {
 
-	@Query(value="select * from userss",nativeQuery=true)
-	List<Detail> findAll();
+	List<Detail> findByDetailid(Integer detailid);
 }

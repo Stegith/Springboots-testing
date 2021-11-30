@@ -20,7 +20,7 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
-	
+
 	@GetMapping("/beat")
 	public String model()
 	{
@@ -39,11 +39,6 @@ public class UserController {
 	public List<User> fetchSimlarRecordsByName(@PathVariable String name){
 		return userService.findSimilarRecords(name);
 	}
-	@GetMapping("/similar_name")
-	public List<User> fetchSimlarRecordsByName()
-	{
-		return userService.findByName();
-	}
 	@PostMapping("/add")
 	public User fetchAll(@RequestBody User userss) {
 		return userService.add(userss);
@@ -53,5 +48,8 @@ public class UserController {
 	{
 		return userService.getdetail();
 	}
-	
+	@PostMapping("/address/{detailid}")
+	public List<Detail> inserts(@RequestBody List<Detail> detail,@PathVariable Integer detailid) {
+		return userService.insertaddr(detail, detailid);
+	}
 }

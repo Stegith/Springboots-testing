@@ -68,5 +68,4 @@ public class Detail {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
 }

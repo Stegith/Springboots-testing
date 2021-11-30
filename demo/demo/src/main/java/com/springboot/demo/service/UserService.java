@@ -38,10 +38,6 @@ public class UserService {
 	public List<User> findSimilarRecords(String name){
 		return userRepository.findByName(name);
 	}
-	public List<User> findByName()
-	{
-		return userRepository.findAll();
-	}
 	public User add(User userss) {
 		return userRepository.save(userss);
 		}
@@ -49,4 +45,9 @@ public class UserService {
 	{
 		return userRepository.findAll();
 	}
+	public List<Detail> insertaddr(List<Detail> detail, Integer detailid) {
+		detailRepository.saveAll(detail);
+	     return detailRepository.findByDetailid(detailid);
+	}
+
 }

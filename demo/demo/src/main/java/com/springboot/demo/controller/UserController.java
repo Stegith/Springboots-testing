@@ -1,5 +1,4 @@
 package com.springboot.demo.controller;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -53,3 +52,4 @@ public class UserController {
 		return userService.insertaddr(detail, detailid);
 	}
 }
+

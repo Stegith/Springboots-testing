@@ -41,7 +41,8 @@ public class UserController {
 		return userRepository.save(userss);
 	}
 	@GetMapping("/find")
-	public Iterable<Detail> fetchAll() {
+	public Iterable<Detail> fetchAll()
+	{
 		return detailRepository.findAll();
 	}
 }

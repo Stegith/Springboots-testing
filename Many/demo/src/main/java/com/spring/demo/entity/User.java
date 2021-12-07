@@ -5,16 +5,15 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 @Entity
 @Table(name="userss")
 public class User {
@@ -29,61 +28,71 @@ public class User {
 	@Column(name="email")
 	private String email;
 	
-	//@OneToMany(mappedBy = "detailid" ,cascade = CascadeType.ALL)
-	//private List<Detail> detail;
+	@OneToMany(mappedBy = "detailid" ,cascade = CascadeType.ALL)
+	private List<Detail> details;
 	
-   //@ManyToMany(targetEntity = UserDetail.class,cascade = CascadeType.ALL)
-  // @JsonManagedReference
-   //private List<UserDetail> usersDetail;
+	 @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	    @JoinTable(name ="users_detail", joinColumns = { @JoinColumn(name = "id") }, inverseJoinColumns = {
+	    	    @JoinColumn(name = "studentid") })
+private List<UserDetail> userdetail;
+	 
+	 public User() { 
+	 }
 
-public Integer getId() {
-	return id;
-}
+	public Integer getId() {
+		return id;
+	}
 
-public void setId(Integer id) {
-	this.id = id;
-}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-public String getName() {
-	return name;
-}
+	public String getName() {
+		return name;
+	}
 
-public void setName(String name) {
-	this.name = name;
-}
+	public void setName(String name) {
+		this.name = name;
+	}
 
-public String getEmail() {
-	return email;
-}
+	public String getEmail() {
+		return email;
+	}
 
-public void setEmail(String email) {
-	this.email = email;
-}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-/*public List<Detail> getDetail() {
-	return detail;
-}
+	public List<Detail> getDetails() {
+		return details;
+	}
 
-public void setDetail(List<Detail> detail) {
-	this.detail = detail;
-}*/
+	public void setDetails(List<Detail> details) {
+		this.details = details;
+	}
 
-public User() {
-	super();
-	// TODO Auto-generated constructor stub
-}
+	public List<UserDetail> getUserdetail() {
+		return userdetail;
+	}
 
-public User(Integer id, String name, String email, List<Detail> detail) {
-	super();
-	this.id = id;
-	this.name = name;
-	this.email = email;
-}
+	public void setUserdetail(List<UserDetail> userdetail) {
+		this.userdetail = userdetail;
+	}
 
-@Override
-public String toString() {
-	return "User [id=" + id + ", name=" + name + ", email=" + email + "]";
-}
+	public User(Integer id, String name, String email, List<Detail> details, List<UserDetail> userdetail) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.details = details;
+		this.userdetail = userdetail;
+	}
 
-   
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", details=" + details + ", userdetail="
+				+ userdetail + "]";
+	}
+
+	
 }

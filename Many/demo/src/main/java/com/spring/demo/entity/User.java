@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -28,76 +29,61 @@ public class User {
 	@Column(name="email")
 	private String email;
 	
-	@OneToMany(mappedBy = "detailid" ,cascade = CascadeType.ALL)
-	private List<Detail> detail;
+	//@OneToMany(mappedBy = "detailid" ,cascade = CascadeType.ALL)
+	//private List<Detail> detail;
 	
-   @ManyToMany(targetEntity = UserDetail.class,cascade = CascadeType.ALL)
-   @JsonManagedReference
-   private List<UserDetail> roles;
-   
-   
-	public List<UserDetail> getRoles() {
-	return roles;
+   //@ManyToMany(targetEntity = UserDetail.class,cascade = CascadeType.ALL)
+  // @JsonManagedReference
+   //private List<UserDetail> usersDetail;
+
+public Integer getId() {
+	return id;
 }
 
-public void setRoles(List<UserDetail> roles) {
-	this.roles = roles;
+public void setId(Integer id) {
+	this.id = id;
 }
 
-	public Integer getId() {
-		return id;
-	}
+public String getName() {
+	return name;
+}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+public void setName(String name) {
+	this.name = name;
+}
 
-	public String getName() {
-		return name;
-	}
+public String getEmail() {
+	return email;
+}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+public void setEmail(String email) {
+	this.email = email;
+}
 
-	public String getEmail() {
-		return email;
-	}
+/*public List<Detail> getDetail() {
+	return detail;
+}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+public void setDetail(List<Detail> detail) {
+	this.detail = detail;
+}*/
 
-	public List<Detail> getDetail() {
-		return detail;
-	}
+public User() {
+	super();
+	// TODO Auto-generated constructor stub
+}
 
-	public void setDetail(List<Detail> detail) {
-		this.detail = detail;
-	}
+public User(Integer id, String name, String email, List<Detail> detail) {
+	super();
+	this.id = id;
+	this.name = name;
+	this.email = email;
+}
 
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+@Override
+public String toString() {
+	return "User [id=" + id + ", name=" + name + ", email=" + email + "]";
+}
 
-	public User(Integer id, String name, String email, List<Detail> detail) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.detail = detail;
-	}
-
-	public User(List<UserDetail> roles) {
-		super();
-		this.roles = roles;
-	}
-
-	@Override
-	public String toString() {
-		return "User [roles=" + roles + "]";
-	}
-	
-	
+   
 }

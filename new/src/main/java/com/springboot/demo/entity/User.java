@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,29 +26,11 @@ public class User {
 	@Column(name="email")
 	private String email;
 	
-	@OneToMany
-	@JoinColumn(name="detailid",nullable=false, updatable = false, insertable = false)
-	private List<Detail> detail;
-
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public User(Integer id, String name, String email, List<Detail> detail) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.detail = detail;
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", detail=" + detail + "]";
-	}
-
-	public Integer getId() {
+	//@OneToMany
+	//@JoinColumn(name="detailid",nullable=false, updatable = false, insertable = false)
+	
+	//private List<Detail> detail;
+public Integer getId() {
 		return id;
 	}
 
@@ -71,12 +54,17 @@ public class User {
 		this.email = email;
 	}
 
-	public List<Detail> getDetail() {
-		return detail;
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setDetail(List<Detail> detail) {
-		this.detail = detail;
+	public User(Integer id, String name, String email) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
 	}
+
 	
 }

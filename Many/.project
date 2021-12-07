@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD:Many/.project
 	<name>Many</name>
+=======
+	<name>demo</name>
+>>>>>>> 98f15a61dc4f52eacc9227560cf2ed0c191e989d:demo/.project
 	<comment></comment>
 	<projects>
 	</projects>

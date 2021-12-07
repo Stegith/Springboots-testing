@@ -32,9 +32,6 @@ public class UserService {
 			return userRepository.save(savedUser.get()); // saving the updated data in DB
 		}
 	}
-	public Iterable<User> fetchAllRecords() {
-		return userRepository.findAll();
-	}
 	public List<User> findSimilarRecords(String name){
 		return userRepository.findByName(name);
 	}
@@ -48,6 +45,13 @@ public class UserService {
 	public List<Detail> insertaddr(List<Detail> detail, Integer detailid) {
 		detailRepository.saveAll(detail);
 	     return detailRepository.findByDetailid(detailid);
+	}
+	public Iterable<Detail> getAll() {
+		return detailRepository.findAll();
+	}
+	public User insertId(User userss, Integer detailid) {
+		userRepository.save(userss);
+		return userRepository.findById(userss);
 	}
 
 }
